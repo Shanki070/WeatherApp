@@ -1,3 +1,3 @@
 package com.example.weather.model
 
-data class ForecastResponse(val list: List<Forecast>)
+data class ForecastResponse(val list: List<WeatherForecast>)
