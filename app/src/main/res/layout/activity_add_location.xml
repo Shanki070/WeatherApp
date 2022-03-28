@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/TextInputLayoutLocation"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="16dp">
+
+            <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+                android:id="@+id/AppCompatAutoCompleteTextViewLocation"
+                style="@style/Widget.MaterialComponents.AutoCompleteTextView.FilledBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/search_location"
+                android:inputType="text"
+                android:lines="1"
+                android:ems="10"
+                android:textSize="18sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/TextViewCityLable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/TextInputLayoutLocation"
+            android:layout_marginTop="56dp"
+            android:padding="8dp"
+            android:text="@string/city"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/TextViewCity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/TextViewCityLable"
+            android:layout_toRightOf="@+id/TextViewCityLable"
+            android:padding="8dp"
+            android:text="@string/city"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/TextViewStateLable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/TextViewCityLable"
+            android:layout_marginTop="16dp"
+            android:padding="8dp"
+            android:text="@string/state"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/TextViewState"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/TextViewStateLable"
+            android:layout_toRightOf="@+id/TextViewStateLable"
+            android:padding="8dp"
+            android:text="@string/city"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/TextViewCountryLable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/TextViewStateLable"
+            android:layout_marginTop="16dp"
+            android:padding="8dp"
+            android:text="@string/country"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/TextViewCountry"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/TextViewCountryLable"
+            android:layout_toRightOf="@+id/TextViewCountryLable"
+            android:padding="8dp"
+            android:text="@string/city"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/ButtonSaveLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="16dp"
+            android:text="@string/save_location" />
+
+    </RelativeLayout>
+</layout>
