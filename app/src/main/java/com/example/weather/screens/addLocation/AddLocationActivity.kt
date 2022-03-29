@@ -5,6 +5,7 @@ import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.example.weather.R
 import com.example.weather.databinding.ActivityAddLocationBinding
@@ -16,7 +17,9 @@ import kotlinx.coroutines.launch
 @AndroidEntryPoint
 class AddLocationActivity : AppCompatActivity() {
 
-    private lateinit var viewModel: AddLocationViewModel
+    val viewModel: AddLocationViewModel by lazy {
+        ViewModelProvider(this)[AddLocationViewModel::class.java]
+    }
 
     private val binding: ActivityAddLocationBinding by lazy {
         DataBindingUtil.setContentView(this, R.layout.activity_add_location)
@@ -25,8 +28,7 @@ class AddLocationActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_location)
-        viewModel = defaultViewModelProviderFactory.create(AddLocationViewModel::class.java)
-        renderSelectedLocation(null)
+        renderSelectedLocation(viewModel.location)
         renderLocationList()
         binding.ButtonSaveLocation.setOnClickListener {
             //TODO add validation
@@ -50,6 +52,7 @@ class AddLocationActivity : AppCompatActivity() {
         textView.threshold = 1
         textView.setOnItemClickListener { _, _, position, _ ->
             locations?.get(position)?.apply {
+                viewModel.location = this //to survive activity-recreation
                 renderSelectedLocation(this)
             }
         }
