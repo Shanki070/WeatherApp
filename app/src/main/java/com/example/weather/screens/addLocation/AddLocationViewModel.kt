@@ -11,7 +11,6 @@ import javax.inject.Inject
 @HiltViewModel
 class AddLocationViewModel @Inject constructor(private val repository: AddLocationRepository) : ViewModel() {
 
-
     var location: Location? = null
 
     suspend fun searchLocation(queryString: String) = viewModelScope.async(Dispatchers.IO) {
@@ -20,9 +19,5 @@ class AddLocationViewModel @Inject constructor(private val repository: AddLocati
 
     suspend fun insertLocation(location: Location) = repository.insertLocation(location)
 
-
-    override fun onCleared() {
-        super.onCleared()
-    }
 }
 

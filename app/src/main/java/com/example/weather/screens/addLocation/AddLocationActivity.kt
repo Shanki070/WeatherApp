@@ -2,6 +2,7 @@ package com.example.weather.screens.addLocation
 
 import android.os.Bundle
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
 import androidx.databinding.DataBindingUtil
@@ -17,7 +18,7 @@ import kotlinx.coroutines.launch
 @AndroidEntryPoint
 class AddLocationActivity : AppCompatActivity() {
 
-    val viewModel: AddLocationViewModel by lazy {
+    private val viewModel: AddLocationViewModel by lazy {
         ViewModelProvider(this)[AddLocationViewModel::class.java]
     }
 
@@ -31,7 +32,14 @@ class AddLocationActivity : AppCompatActivity() {
         renderSelectedLocation(viewModel.location)
         renderLocationList()
         binding.ButtonSaveLocation.setOnClickListener {
-            //TODO add validation
+            lifecycleScope.launch {
+                viewModel.location?.apply {
+                    viewModel.insertLocation(this)
+                } ?: run {
+                    //validation
+                    Toast.makeText(this@AddLocationActivity, R.string.select_location, Toast.LENGTH_LONG).show()
+                }
+            }
         }
     }
 

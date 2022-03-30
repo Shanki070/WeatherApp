@@ -14,7 +14,8 @@
         android:name=".MyApplication"
         android:theme="@style/Theme.Weather">
         <activity
-            android:name=".screens.addLocation.AddLocationActivity"
+            android:name=".screens.locationList.LocationListActivity"
+            android:label="@string/saved_location"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,6 +23,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".screens.addLocation.AddLocationActivity"
+            android:label="@string/add_location"/>
     </application>
 
 </manifest>
