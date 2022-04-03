@@ -9,5 +9,5 @@ import javax.inject.Inject
 @HiltViewModel
 class LocationListViewModel @Inject internal constructor(locationListRepository: LocationListRepository) : ViewModel() {
 
-    val dBLocationList: LiveData<List<Location>> = locationListRepository.getAllLocations()
+    val dBLocationList: LiveData<List<Location>?> = locationListRepository.getAllLocations()
 }

@@ -13,5 +13,8 @@ interface LocationDao {
     suspend fun insertLocation(location: Location): Long
 
     @Query("SELECT * FROM location")
-    fun getAllLocations(): LiveData<List<Location>>
+    fun getAllLocations(): List<Location>?
+
+    @Query("SELECT * FROM location")
+    fun getAllLocationsLive(): LiveData<List<Location>?>
 }

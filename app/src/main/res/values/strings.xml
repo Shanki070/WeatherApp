@@ -2,6 +2,7 @@
     <string name="app_name">Weather</string>
     <string name="save_location">Save Location</string>
     <string name="add_location">Add Location</string>
+    <string name="weather_details">Weather Details</string>
     <string name="search_location">Search Location</string>
     <string name="country">Country:</string>
     <string name="state">State:</string>

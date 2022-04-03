@@ -1,5 +1,6 @@
 package com.example.weather.screens.locationList
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -7,6 +8,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.weather.databinding.ListItemLocationBinding
 import com.example.weather.room.Location
+import com.example.weather.screens.weatherDetail.WeatherDetailActivity
 
 class LocationAdapter : ListAdapter<Location, RecyclerView.ViewHolder>(LocationDiffCallback()) {
 
@@ -21,15 +23,17 @@ class LocationAdapter : ListAdapter<Location, RecyclerView.ViewHolder>(LocationD
     }
 
     class LocationViewHolder(private val binding: ListItemLocationBinding) : RecyclerView.ViewHolder(binding.root) {
-        init {
-            binding.setClickListener {
-                //TODO
-            }
-        }
-
         fun bind(item: Location) {
             binding.apply {
                 location = item
+            }
+
+            binding.setClickListener {
+                Intent(it.context, WeatherDetailActivity::class.java).apply {
+                    putExtra(WeatherDetailActivity.KEY_LAT, item.lat)
+                    putExtra(WeatherDetailActivity.KEY_LON, item.lon)
+                    it.context.startActivity(this)
+                }
             }
         }
     }

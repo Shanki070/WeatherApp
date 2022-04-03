@@ -7,8 +7,8 @@ import retrofit2.http.Query
 
 interface ForecastApiService {
     @GET("/data/2.5/forecast")
-    suspend fun getForecastForNext5Days(@Query("lat") lat: String,
-                                        @Query("lon") lon: String,
+    suspend fun getForecastForNext5Days(@Query("lat") lat: Double,
+                                        @Query("lon") lon: Double,
                                         @Query("units") unit: String = "metric",  //to get temperature in Celsius
                                         @Query("appid") appId: String): ForecastResponse
 }

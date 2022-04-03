@@ -35,6 +35,7 @@ class AddLocationActivity : AppCompatActivity() {
             lifecycleScope.launch {
                 viewModel.location?.apply {
                     viewModel.insertLocation(this)
+                    finish()
                 } ?: run {
                     //validation
                     Toast.makeText(this@AddLocationActivity, R.string.select_location, Toast.LENGTH_LONG).show()

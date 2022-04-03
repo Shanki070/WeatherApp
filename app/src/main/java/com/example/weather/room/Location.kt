@@ -9,4 +9,11 @@ data class Location(
     val name: String,
     val state: String? = null,
     val country: String,
-)
+) {
+    fun getLocationName(): String {
+        val name = StringBuilder(name)
+        state?.apply { name.append(", $this")  }
+        name.append(", $country")
+        return name.toString()
+    }
+}

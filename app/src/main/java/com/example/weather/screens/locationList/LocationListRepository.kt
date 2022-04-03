@@ -7,5 +7,5 @@ import javax.inject.Inject
 @ActivityRetainedScoped
 class LocationListRepository @Inject constructor(private val locationDao: LocationDao) {
 
-    fun getAllLocations() = locationDao.getAllLocations()
+    fun getAllLocations() = locationDao.getAllLocationsLive()
 }
